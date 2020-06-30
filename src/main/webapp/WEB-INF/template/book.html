@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+<div id="total1">
+    <div class="top">
+        <h2>Book管理demo</h2>
+    </div>
+    <div class="main">
+        <div>
+            <form id="searchForm" method="post" th:action="@{/book/search}">
+                <input id="searchAuthor" name="author" type="text" placeholder="请输入作者名称">
+                <input id="searchDescription" name="description" class="inp" type="text" placeholder="请输入关键词">
+                <input type="submit" id="qstnMark">
+                <a th:href="@{/book/edit}">新增文章</a>
+            </form>
+        </div>
+
+        <div>
+            <table id="table1" cellpadding="0px">
+                <tr class="tableTitle" align="center">
+                    <td class="col1">id</td>
+                    <td class="col1">sex</td>
+                    <td class="col2">reader</td>
+                    <td class="col2">title</td>
+                    <td class="col1">author</td>
+                    <td class="col3">description</td>
+                    <td class="col2">操作</td>
+                </tr>
+                <tr th:each="book:${bookList}">
+                    <td class="col1" th:text="${book.id}"></td>
+                    <td class="col1" th:text="${book.sex}"></td>
+                    <td class="col2" th:text="${book.reader}"></td>
+                    <td class="col2" th:text="${book.title}"></td>
+                    <td class="col1" th:text="${book.author}"></td>
+                    <td class="col3" th:text="${book.description}"></td>
+                    <td class="col2"><a th:href="@{/book/delete(id=${book.id})}">删除</a> <a th:href="@{/book/edit(id=${book.id})}">编辑</a> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

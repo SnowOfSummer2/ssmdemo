@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+<div class="main" align="center">
+    <form method="post" th:action="@{/book/edit}">
+        <input type="hidden" th:value="${book?.id}" name="id">
+        <table id="table2" cellspacing="18px">
+            <tr class="table2Tr">
+                <td class="table2Td1" align="right">reader</td>
+                <td class="table2Td2"><input type="text" name="reader" placeholder="reader" th:value="${book?.reader}"/>
+                </td>
+                <td class="table2Td1" align="right"><p>*</p>title</td>
+                <td class="table2Td2"><input type="text" name="title" placeholder="title" th:value="${book?.title}"/>
+                </td>
+            </tr>
+            <tr class="table2Tr">
+                <td class="table2Td1" align="right"><p>*</p>author</td>
+                <td class="table2Td2"><input type="text" name="author" placeholder="author" th:value="${book?.author}"/>
+                </td>
+                <td class="table2Td1" align="right">sex</td>
+                <td class="table2Td2"><input type="text" name="sex" placeholder="sex" th:value="${book?.sex}"/></td>
+            </tr>
+            <tr class="table2Tr">
+                <td class="table2Td1" align="right">description</td>
+                <td class="table2Td3" colspan="3"><input type="text" name="description" placeholder="description"
+                                                         th:value="${book?.description}" style="width: 1021px"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input style="height: 35px; width: 80px;" type="submit" value="提交"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
